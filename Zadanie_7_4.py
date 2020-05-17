@@ -16,11 +16,9 @@ class Films:
     def __str__(self):
         return f"{self.title} ({self.release_date})"
     
-class Series:
-    def __init__(self, title, release_date, genre, series_number, episode_number):
-        self.title = title
-        self.release_date = release_date
-        self.genre = genre
+class Series(Films):
+    def __init__(self, series_number, episode_number, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.series_number = series_number
         self.episode_number = episode_number
         
