@@ -15,6 +15,14 @@ class Movies:
 
     def __str__(self):
         return f"{self.title} ({self.release_date})"
+
+    @property
+    def number_of_plays(self):
+        return self._number_of_plays
+
+    @number_of_plays.setter
+    def number_of_plays(self,value):
+        self._number_of_plays = value
     
 class Series(Movies):
     def __init__(self, series_number, episode_number, *args, **kwargs):
@@ -83,7 +91,7 @@ def generate_views(a):
     j = random.choice(range(101))
     i.play(j)
     print(i)
-    print(i.current_views)
+    print(i.number_of_plays)
 
 generate_views(base_list)
 
@@ -91,10 +99,10 @@ generate_views(base_list)
 # print out the top title by views
 def top_titles(a, amount, content_type):
     top = [i for i in a if i.__class__.__name__ == content_type.__name__]
-    top = sorted(top, key=lambda content_type: content_type.current_views, reverse=True)
+    top = sorted(top, key=lambda content_type: content_type.number_of_plays, reverse=True)
     n=0
     for i in top:
-        print(f"{i}, views = {i.current_views}")
+        print(f"{i}, views = {i.number_of_plays}")
         n=n+1
         if n == amount:
             break
