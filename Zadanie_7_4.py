@@ -62,8 +62,6 @@ def search(name):
     for film_series in base_list:
         if str(film_series.title) == name:
             print(film_series)
-        else:
-            print("Niestety nie ma takiego tytułu w naszej bazie")
 
 # decorator for generating views
 def generate_multi(func):
@@ -84,11 +82,10 @@ def generate_views():
 
 # print out the top title by views
 def top_titles(top_n, klass):
-    films_selected_by_class = [film for film in base_list if film.__class__.__name__ == klass.__name__]
-    films_sorted_by_number_of_plays = sorted(films_selected_by_class, key=lambda film: film.number_of_plays, reverse=True)
-    n=0
-    for i, film in enumerate(films_sorted_by_number_of_plays, start = 1):
-        print(f"{film}, views = {film.number_of_plays}")
+    movies_selected_by_class = [movie for movie in base_list if movie.__class__.__name__ == klass.__name__]
+    movies_sorted_by_number_of_plays = sorted(movies_selected_by_class, key=lambda movie: movie.number_of_plays, reverse=True)
+    for i, movie in enumerate(movies_sorted_by_number_of_plays, start=1):
+        print(f"{movie}, views = {movie.number_of_plays}")
         if i == top_n:
             break
 
