@@ -34,9 +34,6 @@ class Series(Movies):
         self.series_number = series_number
         self.episode_number = episode_number
         
-        # Variables
-        self.number_of_plays = 0
-
     def __str__(self):
         return "%s S%.2dE%.2d" % (self.title, self.series_number, self.episode_number)
 
