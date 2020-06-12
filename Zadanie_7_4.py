@@ -96,23 +96,25 @@ def print_help():
     najlepsze tytuły - wydruk najlepszych tytułów filmów lub seriali
     zamknij - zamknięcie programu""")
 
-# biblioteka filmów
-movie_one = Movies(title = "Shrek", release_date = "2001", genre = "animated")
-movie_two = Movies(title = "The Godfather", release_date = "1972", genre = "criminal")
-movie_three = Movies(title = "Pulp Fiction", release_date = "1994", genre = "criminal")
+# funkcja inicjacji bazowych danych
+def base_data():
+    # biblioteka filmów
+    movie_one = Movies(title = "Shrek", release_date = "2001", genre = "animated")
+    movie_two = Movies(title = "The Godfather", release_date = "1972", genre = "criminal")
+    movie_three = Movies(title = "Pulp Fiction", release_date = "1994", genre = "criminal")
 
-# biblioteka seriali
-series_one = Series(title = "South Park", release_date = "1997", genre = "animated", series_number = random.randint(1, 23), episode_number = random.randint(1, 14))
-series_two = Series(title = "Stranger Things", release_date = "2016", genre = "science fiction", series_number = random.randint(1, 3), episode_number = random.randint(1, 10))
-series_three = Series(title = "Rick & Morty", release_date = "2013", genre = "animated", series_number = random.randint(1, 4), episode_number = random.randint(1, 12))
+    # biblioteka seriali
+    series_one = Series(title = "South Park", release_date = "1997", genre = "animated", series_number = random.randint(1, 23), episode_number = random.randint(1, 14))
+    series_two = Series(title = "Stranger Things", release_date = "2016", genre = "science fiction", series_number = random.randint(1, 3), episode_number = random.randint(1, 10))
+    series_three = Series(title = "Rick & Morty", release_date = "2013", genre = "animated", series_number = random.randint(1, 4), episode_number = random.randint(1, 12))
 
-# zawarcie wszystkich filmów i seriali w jednej liście base_list
-base_list.append(movie_one)
-base_list.append(movie_two)
-base_list.append(movie_three)
-base_list.append(series_one)
-base_list.append(series_two)
-base_list.append(series_three)
+    # zawarcie wszystkich filmów i seriali w jednej liście base_list
+    base_list.append(movie_one)
+    base_list.append(movie_two)
+    base_list.append(movie_three)
+    base_list.append(series_one)
+    base_list.append(series_two)
+    base_list.append(series_three)
 
 
 # dostępne komendy do wywołania
@@ -152,5 +154,6 @@ def task():
 
 # uruchomienie programu
 if __name__ == "__main__":
+    base_data()
     print("Witam w programie do pobierania danych na temat filmów! \n Wpisz 'pomoc' aby dowiedzieć się więcej")
     task()        
